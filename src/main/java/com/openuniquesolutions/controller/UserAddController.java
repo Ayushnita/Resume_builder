@@ -1,4 +1,4 @@
-package com.openuniquesolutions.contraoller;
+package com.openuniquesolutions.controller;
 
 import java.util.List;
 
