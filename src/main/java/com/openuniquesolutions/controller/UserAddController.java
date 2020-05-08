@@ -61,7 +61,7 @@ public class UserAddController {
 		return userDetailService.addExperienceDetailsService(user.getUsername(), educationModel);
 	}
 	
-	@PostMapping("/projects/{id}")
+	@PostMapping("/projects")
 	public String addProjectsDetails(@AuthenticationPrincipal UserDetails user, @RequestBody List<ProjectsModel> projects) {
 		return userDetailService.addProjectsDetails(user.getUsername(), projects);
 	}
