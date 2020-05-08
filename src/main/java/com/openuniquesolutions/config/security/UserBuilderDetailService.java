@@ -14,11 +14,9 @@ public class UserBuilderDetailService implements UserDetailsService {
 	@Override
 	public Users loadUserByUsername(String username) throws UsernameNotFoundException {
 		System.out.println("Calling user Detail Service in Spring Security");
-		Users user = userRepo.findByUserName(username);
-		if(user == null) {
-			throw new UsernameNotFoundException("User Not Found");
-		}
+		return userRepo.findByUserName(username)
+						.map(user -> new Users(user.getUserName(), user.getEmail(), user.getPassword()))
+						.orElseThrow(() -> new UsernameNotFoundException("User Not Exist"));
 		
-		return new Users(user.getEmail(), user.getUsername(), user.getPassword());
 }
 }
