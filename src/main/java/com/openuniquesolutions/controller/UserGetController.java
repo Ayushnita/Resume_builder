@@ -7,10 +7,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.openuniquesolutions.model.UserModel;
+import com.openuniquesolutions.beans.UsersResultBean;
 import com.openuniquesolutions.service.UserDetailService;
 
-@RequestMapping("/api/get")
+@RequestMapping("/api/users")
 @RestController
 public class UserGetController {
 	
@@ -28,7 +28,7 @@ public class UserGetController {
 	}
 	
 	@GetMapping
-	public UserModel getUserDetails(@AuthenticationPrincipal UserDetails user) {
+	public UsersResultBean getUserDetails(@AuthenticationPrincipal UserDetails user) {
 		return userDetailService.findById (user.getUsername());
 	}
 	

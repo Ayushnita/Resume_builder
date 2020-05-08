@@ -1,11 +1,12 @@
 package com.openuniquesolutions.service;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.openuniquesolutions.beans.UsersResultBean;
 import com.openuniquesolutions.model.AreaOfIntrestModel;
 import com.openuniquesolutions.model.AwardsAndExtraModel;
 import com.openuniquesolutions.model.EducationModel;
@@ -42,9 +43,11 @@ public class UserDetailServiceImpl implements UserDetailService {
 	}
 
 	@Override
-	public UserModel findById(String id) {
+	public UsersResultBean findById(String id) {
 		UserModel user = getUserOrNewUser(id);
-		return user;
+		List<UserModel> userList = new ArrayList<UserModel>();
+		userList.add(user);
+		return new UsersResultBean(1, userList);
 	}
 
 	@Override

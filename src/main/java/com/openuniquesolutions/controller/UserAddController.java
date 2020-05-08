@@ -22,7 +22,7 @@ import com.openuniquesolutions.model.SkillsModel;
 import com.openuniquesolutions.service.UserDetailService;
 
 @RestController
-@RequestMapping("/api/add")
+@RequestMapping("/api/user")
 public class UserAddController {
 	
 	
