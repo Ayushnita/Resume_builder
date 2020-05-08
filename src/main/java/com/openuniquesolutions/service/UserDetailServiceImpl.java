@@ -23,14 +23,10 @@ public class UserDetailServiceImpl implements UserDetailService {
 	UserDetailsDao userDetailsDao;
 	
 	private UserModel getUserOrNewUser(String userId) {
-		Optional<UserModel> userOptional = userDetailsDao.findById(userId);
-		UserModel user = null;
-		if (!userOptional.isPresent()) {
-			user = new UserModel(userId);
-		}else {
-			 user = userOptional.get();
-		}
-		return user;
+		
+		return userDetailsDao.findById(userId)
+					.map(user -> user)
+					.orElse(new UserModel(userId));
 	}
 	
 	@Override
