@@ -19,8 +19,12 @@ import com.openuniquesolutions.repo.UserDetailsDao;
 @Service
 public class UserDetailServiceImpl implements UserDetailService {
 
+	private final UserDetailsDao userDetailsDao;
+	
 	@Autowired
-	UserDetailsDao userDetailsDao;
+	public UserDetailServiceImpl(UserDetailsDao userDetailsDao) {
+		this.userDetailsDao = userDetailsDao;
+	}
 	
 	private UserModel getUserOrNewUser(String userId) {
 		

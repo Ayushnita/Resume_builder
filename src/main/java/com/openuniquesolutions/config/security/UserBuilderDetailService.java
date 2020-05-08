@@ -8,9 +8,15 @@ import org.springframework.stereotype.Component;
 @Component
 public class UserBuilderDetailService implements UserDetailsService {
 
-	@Autowired
-	UserRepo userRepo;
+
+	private final UserRepo userRepo;
 	
+	@Autowired
+	public UserBuilderDetailService(UserRepo userRepo) {
+		this.userRepo = userRepo;
+	}
+
+
 	@Override
 	public Users loadUserByUsername(String username) throws UsernameNotFoundException {
 		System.out.println("Calling user Detail Service in Spring Security");

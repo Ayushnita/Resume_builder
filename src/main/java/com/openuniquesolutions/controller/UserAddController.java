@@ -25,9 +25,14 @@ import com.openuniquesolutions.service.UserDetailService;
 @RequestMapping("/api/add")
 public class UserAddController {
 	
-	@Autowired
-	UserDetailService userDetailService;
 	
+	private final UserDetailService userDetailService;
+	
+	@Autowired
+	public UserAddController(UserDetailService userDetailService) {
+		this.userDetailService = userDetailService;
+	}
+
 	@PostMapping("/general")
 	public String addUserDetails(@AuthenticationPrincipal UserDetails user,@ModelAttribute GeneralDetailsModel general){
 		return userDetailService.createUserWithGenerealDetails(user.getUsername(), general);

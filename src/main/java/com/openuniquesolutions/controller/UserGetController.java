@@ -14,9 +14,14 @@ import com.openuniquesolutions.service.UserDetailService;
 @RestController
 public class UserGetController {
 	
-	@Autowired
-	UserDetailService userDetailService;
+
+	private final UserDetailService userDetailService;
 	
+	@Autowired
+	public UserGetController(UserDetailService userDetailService) {
+		this.userDetailService = userDetailService;
+	}
+
 	@GetMapping("/check")
 	public String checkApi() {
 		return "Fine";
