@@ -63,7 +63,7 @@ public class UserDetailServiceImpl implements UserDetailService {
 		UserModel user = getUserOrNewUser(userId);
 		AreaOfIntrestModel areaOfIntrest = new AreaOfIntrestModel();
 		areaOfIntrest.setAreaOfIntrests(intrests);
-		user.setAreaOfIntrest(areaOfIntrest);
+		user.addAreaOfIntrest(areaOfIntrest);
 		userDetailsDao.save(user);
 		return user.getUserId();
 	}
@@ -72,8 +72,7 @@ public class UserDetailServiceImpl implements UserDetailService {
 	public String addExtrasAndAwards(String id, List<String> extrasAndAwards) {
 		UserModel user = getUserOrNewUser(id);
 		AwardsAndExtraModel awardsAndExtraModel = new AwardsAndExtraModel();
-		awardsAndExtraModel.setExtrasAndAwards(extrasAndAwards);
-		user.setAwardsAndExtra(awardsAndExtraModel);
+		
 		userDetailsDao.save(user);
 		return user.getUserId();
 	}

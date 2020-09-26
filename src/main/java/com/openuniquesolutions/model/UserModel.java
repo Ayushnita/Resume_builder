@@ -1,5 +1,6 @@
 package com.openuniquesolutions.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.data.annotation.Id;
@@ -18,8 +19,8 @@ public class UserModel {
 	private List<ExperienceModel> experiences;
 	private List<EducationModel> education;
 	private List<ProjectsModel> projects;
-	private AwardsAndExtraModel awardsAndExtra;
-	private AreaOfIntrestModel areaOfIntrest;
+	private List<AwardsAndExtraModel> awardsAndExtra;
+	private List<AreaOfIntrestModel> areaOfIntrest;
 	private List<SkillsModel> skillModel;
 	
 	public UserModel(String userId) {
@@ -41,6 +42,13 @@ public class UserModel {
 	public void setExperiences(List<ExperienceModel> experiences) {
 		this.experiences = experiences;
 	}
+	
+	 void addExperience(ExperienceModel experience) {
+		if(this.experiences == null) {
+			this.experiences = new ArrayList<>();
+		}
+		this.experiences.add(experience);
+	}
 
 	public List<EducationModel> getEducation() {
 		return education;
@@ -49,7 +57,14 @@ public class UserModel {
 	public void setEducation(List<EducationModel> education) {
 		this.education = education;
 	}
-
+	
+	void addEducation(EducationModel _education) {
+		if(this.education == null) {
+			this.education = new ArrayList<>();
+		}
+		this.education.add(_education);
+	}
+	
 	public List<ProjectsModel> getProjects() {
 		return projects;
 	}
@@ -57,23 +72,33 @@ public class UserModel {
 	public void setProjects(List<ProjectsModel> projects) {
 		this.projects = projects;
 	}
-
-	public AwardsAndExtraModel getAwardsAndExtra() {
+	
+	public List<AwardsAndExtraModel> getAwardsAndExtra() {
 		return awardsAndExtra;
 	}
 
-	public void setAwardsAndExtra(AwardsAndExtraModel awardsAndExtra) {
+	public void setAwardsAndExtra(List<AwardsAndExtraModel> awardsAndExtra) {
 		this.awardsAndExtra = awardsAndExtra;
 	}
 
-	public AreaOfIntrestModel getAreaOfIntrest() {
+	public void addAwardsAndExtra(AwardsAndExtraModel award) {
+		if(this.awardsAndExtra == null) {
+			this.awardsAndExtra = new ArrayList<>();
+		}
+		this.awardsAndExtra.add(award);
+	}
+	
+	public List<AreaOfIntrestModel> getAreaOfIntrest() {
 		return areaOfIntrest;
 	}
 
-	public void setAreaOfIntrest(AreaOfIntrestModel areaOfIntrest) {
-		this.areaOfIntrest = areaOfIntrest;
-	}
 
+	public void addAreaOfIntrest(AreaOfIntrestModel areaOfIntrests) {
+		if(this.areaOfIntrest == null) {
+			this.areaOfIntrest = new ArrayList<>();
+		}
+		this.areaOfIntrest.add(areaOfIntrests);
+	}
 	public List<SkillsModel> getSkillModel() {
 		return skillModel;
 	}
@@ -82,12 +107,22 @@ public class UserModel {
 		this.skillModel = skillModel;
 	}
 
-//	public void setSkillModel(SkillsModel skillModel) {
-//		this.skillModel.add(skillModel);
-//	}
-//	
 	public String getUserId() {
 		return userId;
+	}
+
+	public void addProject(ProjectsModel project) {
+		if(this.projects == null) {
+			this.projects = new ArrayList<>();
+		}
+		this.projects.add(project);
+	}
+
+	public void addSkill(SkillsModel skill) {
+		if(this.skillModel == null) {
+			this.skillModel = new ArrayList<>();
+		}
+		this.skillModel.add(skill);
 	}
 
 }

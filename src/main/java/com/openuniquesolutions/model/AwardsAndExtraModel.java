@@ -1,27 +1,24 @@
 package com.openuniquesolutions.model;
 
-import java.util.List;
-
 public class AwardsAndExtraModel {
 
-	private List<String> extrasAndAwards;
+	private String extrasAndAwards;
 
 	public AwardsAndExtraModel() {
 	}
 
-	public AwardsAndExtraModel(List<String> extrasAndAwards) {
+	public AwardsAndExtraModel(String extrasAndAwards) {
+		super();
 		this.extrasAndAwards = extrasAndAwards;
 	}
 
-	public List<String> getExtrasAndAwards() {
+	public String getExtrasAndAwards() {
 		return extrasAndAwards;
 	}
 
-	public void setExtrasAndAwards(List<String> extrasAndAwards) {
+	public void setExtrasAndAwards(String extrasAndAwards) {
 		this.extrasAndAwards = extrasAndAwards;
 	}
 	
-	public void setExtrasAndAwards(String extraAndAward) {
-		this.extrasAndAwards.add(extraAndAward);
-	}
+
 }
